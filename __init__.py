@@ -1,6 +1,7 @@
 from mycroft import MycroftSkill, intent_file_handler
 from mycroft.skills.audioservice import AudioService
 import os
+import random
 
 
 class Fart(MycroftSkill):
@@ -19,7 +20,15 @@ class Fart(MycroftSkill):
 
         self.log.info(directory)
 
-        self.audio_service.play(f'file://{directory}/fart_sample.wav')
+        choices = [
+            'fart_sample_0.wav',
+            'fart_sample_1.wav',
+            'fart_sample_2.wav',
+        ]
+
+        choice = random.choice(choices)
+
+        self.audio_service.play(f'file://{directory}/farts/{choice}')
 
         self.speak_dialog('fart', data={
             'typeof': typeof
