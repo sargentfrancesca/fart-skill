@@ -7,8 +7,9 @@ class Fart(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
     
-    def initialise(self):
+    def initialize(self):
         self.audio_service = AudioService(self.bus)
+
 
     @intent_file_handler('fart.intent')
     def handle_fart(self, message):
